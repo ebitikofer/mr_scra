@@ -108,9 +108,11 @@ def main(argv):
         print('emailscrape.py <db_name>')                       #print proper format of arguments
         sys.exit()                                              #exit without executing
 
-    infile = open(argv[0], 'r')                                 #open the input file into a stream
-    location = infile.readline()                                #set database location as argument 1
-    url = "https://www.ohio.edu/engineering/about/people"       #url to scan in
+    with open(argv[0], 'r') as infile:
+        inputs = infile.read().splitlines()                     #open the input file into a list
+
+    location = inputs[0]                                        #set database location as argument 1
+    url = inputs[1]                                             #url to scan in
                                                                 #create table sql command
     table_sql = """ CREATE TABLE IF NOT EXISTS entries(id integer PRIMARY KEY, first text NOT NULL, last text NOT NULL, email text NOT NULL); """
                                                                 #insert entry sql command

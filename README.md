@@ -7,5 +7,6 @@ usage:
 
 input file format:
 	<database.db>
+	<http://webpage.to/scrape>
 
-e.b.02.17.17
+e.b.02.10.17
